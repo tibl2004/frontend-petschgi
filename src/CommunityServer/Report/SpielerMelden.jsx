@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios'; // Importiere Axios
 import './SpielerMelden.scss'; // Importiere das SCSS-Stylesheet
 
 function SpielerMelden() {
@@ -13,14 +14,21 @@ function SpielerMelden() {
     setBenutzername(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Hier könntest du die Daten senden oder weiterverarbeiten
-    console.log('Spielername:', spielername);
-    console.log('Benutzername:', benutzername);
-    // Zurücksetzen des Formulars nach dem Absenden
-    setSpielername('');
-    setBenutzername('');
+    try {
+      // Sende POST-Request mit Axios
+      const response = await axios.post('https://backend-petschgi.onrender.com/api/v1/spielermelden', {
+        spielername: spielername,
+        benutzername: benutzername
+      });
+      console.log('Response:', response.data);
+      // Zurücksetzen des Formulars nach dem Absenden
+      setSpielername('');
+      setBenutzername('');
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   return (
