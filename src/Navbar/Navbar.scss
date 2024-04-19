@@ -1,0 +1,101 @@
+.navbar {
+  height: 100px;
+  background-color: #000000; /* Farbe von der normalen Navbar */
+  position: relative;
+  display: flex; /* Flexbox-Layout für die Navbar */
+  align-items: center; /* Vertikale Ausrichtung der Navbar-Elemente */
+  font-family: 'Comic Sans', 'Comic Sans MS', cursive; // Alternativ 'Comic Sans MS' verwenden, um sicherzustellen, dass die Schriftart auf allen Geräten verfügbar ist
+
+  .logo {
+    max-height: 100%;
+  }
+ 
+  .menu-icon {
+    display: none;
+
+    div {
+      width: 30px;
+      height: 3px;
+      background-color: #ffffff; /* Farbe von der normalen Navbar */
+      margin: 6px 0;
+      transition: 0.4s;
+    }
+
+    &.active {
+      div:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+        width: 45px;
+      }
+
+      div:nth-child(2) {
+        opacity: 0;
+      }
+
+      div:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+        width: 45px;
+        margin-top: -8px;
+      }
+    }
+  }
+
+  .nav-elements {
+    ul {
+      display: flex; /* Flexbox-Layout für die Navbar-Elemente */
+      list-style-type: none;
+
+      li:not(:last-child) {
+        margin-right: 60px;
+      }
+
+      a {
+        height: 100px; // Setze die Höhe der Links auf 100px
+        display: flex; // Stelle sicher, dass die Links die Höhe vollständig ausfüllen
+        align-items: center; // Zentriere den Text vertikal
+        padding: 0 20px; // Füge horizontalen Abstand hinzu
+        font-size: 23px; // Größe des Textes auf 23px erhöhen
+        font-weight: 400;
+        color: #ffffff; /* Farbe von der normalen Navbar */
+        text-decoration: none;
+        position: relative;
+
+        &.active {
+          color: #000000; /* Farbe von der normalen Navbar */
+          background-color: #ffffff;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    .menu-icon {
+      display: block;
+      cursor: pointer;
+    }
+
+    .nav-elements {
+      position: absolute;
+      right: 0;
+      top: 60px;
+      background-color: #000000; /* Farbe von der normalen Navbar */
+      width: 0px;
+      height: calc(100vh - 60px);
+      transition: all 0.3s ease-in;
+      overflow: hidden;
+
+      &.active {
+        width: 100%; // Ändere die Breite auf 100%, um die Navbar auf kleinen Geräten vollständig anzuzeigen
+
+        ul {
+          flex-direction: column;
+
+          li {
+            margin-right: unset;
+            margin-top: 22px;
+          }
+        }
+      }
+    }
+  }
+}

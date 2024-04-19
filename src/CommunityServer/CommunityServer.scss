@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    padding: 20px;
+  }
+  
+  .links-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px; /* Maximalbreite für die Links */
+  }
+  
+  .link {
+    text-decoration: underline;
+    font-size: 1.2rem;
+    margin: 10px 0; /* Abstand zwischen den Links */
+  }
+  
+  .link:not(:last-child) {
+    border-bottom: 1px solid white; /* Horizontale Linie zwischen den Links */
+  }
+  
+  .link:hover {
+    color: #fff; /* Ändern der Farbe beim Hover */
+  }
+  

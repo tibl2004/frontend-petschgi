@@ -1,0 +1,55 @@
+/* BugMelden.scss */
+
+.bug-melden-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .bug-melden-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .bug-melden-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .bug-melden-container label {
+    margin-bottom: 15px;
+  }
+  
+  .bug-melden-container textarea,
+  .bug-melden-container input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .bug-melden-container textarea {
+    height: 150px;
+  }
+  
+  .bug-melden-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .bug-melden-container button:hover {
+    background-color: #0056b3;
+  }
+  
