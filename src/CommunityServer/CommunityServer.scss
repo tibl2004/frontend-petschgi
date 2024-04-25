@@ -1,36 +1,98 @@
-/* CommunityServer.scss */
+$primary-color: #007bff; // Primäre Farbe
+$secondary-color: #6c757d; // Sekundäre Farbe
 
-/* Gemeinsame Stildefinitionen */
-$primary-color: #4CAF50; /* Hauptfarbe */
-
-/* Stil für den Container */
 .community-server-container {
-  text-align: center; /* Zentriert den Text im Container */
-  padding: 50px 20px; /* Fügt etwas vertikalen Abstand und wenig horizontalen Abstand hinzu */
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  border: 1px solid $secondary-color;
+  border-radius: 5px;
+  background-color: #2d2d2d; // Hintergrundfarbe anpassen
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
   
   h2 {
-    font-size: 36px; /* Setzt die Schriftgröße für den Titel */
-    margin-bottom: 30px; /* Fügt etwas Abstand unter dem Titel hinzu */
-    color: $primary-color; /* Verwendet die Hauptfarbe für den Titel */
+    color: $primary-color;
+    margin-bottom: 20px;
+    background-color: #2d2d2d; // Hintergrundfarbe anpassen
+    padding: 10px; // Innenabstand hinzufügen
+    border-bottom: 1px solid $secondary-color; // Unterstrich hinzufügen
   }
-
+  
+  .minecraft-container {
+    margin-bottom: 20px;
+    background-color: #2d2d2d; // Hintergrundfarbe anpassen
+   
+    .copy-text {
+      padding: 10px 15px;
+      background-color: $primary-color; // Primärfarbe verwenden
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      
+      &:hover {
+        background-color: darken($primary-color, 10%); // Dunklere Farbe bei Hover
+      }
+    }
+  }
+  
+  .server-info {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid $secondary-color;
+    background-color: #2d2d2d; // Hintergrundfarbe anpassen
+    border-radius: 5px;
+    color: white;
+    
+    p {
+      margin: 5px 0;
+      background-color: #2d2d2d;
+    }
+    .servername-button {
+      background-color: $primary-color;
+      border: none;
+      cursor: pointer;
+      color: #fff; // Sekundärfarbe verwenden
+      font-size: 18px;
+      
+      &:hover {
+        color: darken($secondary-color, 20%); // Dunklere Farbe bei Hover
+      }
+    }
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: #2d2d2d;
+    
+    .icon-button {
+      background-color: #2d2d2d;
+      border: none;
+      cursor: pointer;
+      color: $secondary-color; // Sekundärfarbe verwenden
+      font-size: 18px;
+      
+      &:hover {
+        color: darken($secondary-color, 20%); // Dunklere Farbe bei Hover
+      }
+    }
+  }
+  
   .link-container {
     display: flex;
-    justify-content: center;
-    gap: 30px; /* Fügt etwas Abstand zwischen den Links hinzu */
+    justify-content: space-between;
+    background-color: #fff; // Hintergrundfarbe anpassen
     
-    /* Stil für die Links */
-    a {
-      text-decoration: none; /* Entfernt die Unterstreichung der Links */
-      padding: 15px 30px; /* Fügt etwas Platz um den Link herum hinzu */
-      border-radius: 25px; /* Verleiht den Links abgerundete Ecken */
-      color: white; /* Setzt die Textfarbe der Links */
-      background-color: $primary-color; /* Setzt die Hintergrundfarbe der Links */
-      transition: all 0.3s ease; /* Fügt eine sanfte Animation hinzu */
-
-      /* Stil für den Hover-Zustand der Links */
+    .link {
+      padding: 10px 15px;
+      background-color: $primary-color; // Primärfarbe verwenden
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+      
       &:hover {
-        background-color: darken($primary-color, 10%); /* Dunkelt die Hauptfarbe im Hover-Zustand ab */
+        background-color: darken($primary-color, 10%); // Dunklere Farbe bei Hover
       }
     }
   }
