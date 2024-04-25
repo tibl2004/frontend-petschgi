@@ -42,12 +42,13 @@ function Navbar() {
           <ul>
             <NavItem to="/" text="Home" currentPath={currentPath} onClick={() => setBurgerMenuActive(false)} />
             <NavItem to="/youtubekollegen" text="Youtube Kollegen" currentPath={currentPath} onClick={() => setBurgerMenuActive(false)} />
-            <NavItem to="/communityserver" text="Community Server" currentPath={currentPath} onClick={() => setBurgerMenuActive(false)} />
-            
+            <NavItem to="/communityserver" text="Communityserver" currentPath={currentPath} onClick={() => setBurgerMenuActive(false)} />
+            <NavItem to="/spielermeldungenanzeigen" text="Spieler Meldungen" currentPath={currentPath} onClick={() => setBurgerMenuActive(false)} />
+            <NavItem to="/links" text="Links" currentPath={currentPath} onClick={() => setBurgerMenuActive(false)} />
     
             {isAdmin ? (
               <>
- 
+ <NavItem to="/anmeldungen" text="Anmeldungen" currentPath={currentPath} onClick={() => setBurgerMenuActive(false)} />
               <p className='admin'>Admin</p>
               <button className="logout-button" onClick={handleLogout}>
                 <FaSignOutAlt />

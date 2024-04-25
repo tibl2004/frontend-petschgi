@@ -60,7 +60,7 @@
         position: relative;
 
         &.active {
-          color: #000000; /* Farbe von der normalen Navbar */
+          color: #000; /* Farbe von der normalen Navbar */
           background-color: #ffffff;
           font-weight: 500;
         }
@@ -78,7 +78,7 @@
       position: absolute;
       right: 0;
       top: 60px;
-      background-color: #000000; /* Farbe von der normalen Navbar */
+      background-color: #000; /* Farbe von der normalen Navbar */
       width: 0px;
       height: calc(100vh - 60px);
       transition: all 0.3s ease-in;

@@ -1,30 +1,37 @@
-.container {
+/* CommunityServer.scss */
+
+/* Gemeinsame Stildefinitionen */
+$primary-color: #4CAF50; /* Hauptfarbe */
+
+/* Stil für den Container */
+.community-server-container {
+  text-align: center; /* Zentriert den Text im Container */
+  padding: 50px 20px; /* Fügt etwas vertikalen Abstand und wenig horizontalen Abstand hinzu */
+  
+  h2 {
+    font-size: 36px; /* Setzt die Schriftgröße für den Titel */
+    margin-bottom: 30px; /* Fügt etwas Abstand unter dem Titel hinzu */
+    color: $primary-color; /* Verwendet die Hauptfarbe für den Titel */
+  }
+
+  .link-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: black;
-    padding: 20px;
+    justify-content: center;
+    gap: 30px; /* Fügt etwas Abstand zwischen den Links hinzu */
+    
+    /* Stil für die Links */
+    a {
+      text-decoration: none; /* Entfernt die Unterstreichung der Links */
+      padding: 15px 30px; /* Fügt etwas Platz um den Link herum hinzu */
+      border-radius: 25px; /* Verleiht den Links abgerundete Ecken */
+      color: white; /* Setzt die Textfarbe der Links */
+      background-color: $primary-color; /* Setzt die Hintergrundfarbe der Links */
+      transition: all 0.3s ease; /* Fügt eine sanfte Animation hinzu */
+
+      /* Stil für den Hover-Zustand der Links */
+      &:hover {
+        background-color: darken($primary-color, 10%); /* Dunkelt die Hauptfarbe im Hover-Zustand ab */
+      }
+    }
   }
-  
-  .links-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 400px; /* Maximalbreite für die Links */
-  }
-  
-  .link {
-    text-decoration: underline;
-    font-size: 1.2rem;
-    margin: 10px 0; /* Abstand zwischen den Links */
-  }
-  
-  .link:not(:last-child) {
-    border-bottom: 1px solid white; /* Horizontale Linie zwischen den Links */
-  }
-  
-  .link:hover {
-    color: #fff; /* Ändern der Farbe beim Hover */
-  }
-  
+}

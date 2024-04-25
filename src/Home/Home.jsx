@@ -1,9 +1,9 @@
 import React from 'react';
 import './Home.scss';
 
-import Programmieren from './programmieren.png';
+
 import DiaShow from './diashow.jpg';
-import GamingPC from './gamingpc.jpeg';
+
 
 const Home = () => {
   
