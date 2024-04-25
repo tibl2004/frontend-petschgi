@@ -7,6 +7,7 @@ import SpielerMelden from './CommunityServer/Report/SpielerMelden';
 import CommunityServer from './CommunityServer/CommunityServer';
 import BugMelden from './CommunityServer/Bug/BugMelden';
 import YoutubeKollegen from './YoutubeKollegen/YouTubeKollegen';
+import SpielermeldungenAnzeigen from './Admin/SpielermeldungenAnzeigen'
 
 const isAdmin = localStorage.getItem('isAdmin');
 
@@ -39,6 +40,15 @@ function App() {
               <>
                 <Navbar />
                 <BugMelden />
+              </>
+            }
+          />
+          <Route
+            path="/spielermeldungenanzeigen"
+            element={
+              <>
+                <Navbar />
+                <SpielermeldungenAnzeigen />
               </>
             }
           />
