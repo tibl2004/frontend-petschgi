@@ -6,6 +6,7 @@ import Home from './Home/Home';
 import SpielerMelden from './CommunityServer/Report/SpielerMelden';
 import CommunityServer from './CommunityServer/CommunityServer';
 import BugMelden from './CommunityServer/Bug/BugMelden';
+import YoutubeKollegen from './YoutubeKollegen/YouTubeKollegen';
 
 const isAdmin = localStorage.getItem('isAdmin');
 
@@ -47,6 +48,15 @@ function App() {
               <>
                 <Navbar />
                 <CommunityServer />
+              </>
+            }
+          />
+           <Route
+            path="/youtubekollegen"
+            element={
+              <>
+                <Navbar />
+                <YoutubeKollegen />
               </>
             }
           />
