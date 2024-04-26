@@ -31,7 +31,7 @@ function EditYouTubeKollege() {
   const handleSave = async () => {
     try {
       await axios.put(`https://backend-petschgi.onrender.com/api/v1/youtubekollegen/${kollegeId}`, kollege);
-      // Hier könntest du eine Weiterleitung oder eine Erfolgsmeldung einfügen
+      window.location = "/youtubekollegen";
     } catch (error) {
       console.error('Error updating Kollege:', error);
     }

@@ -1,90 +1,86 @@
 .youtube-kollegen {
-  margin: 20px;
-  font-family: Arial, sans-serif;
-
-  h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-
-  .kollegen-liste {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-  }
+  background-color: #000; // Hintergrundfarbe: Schwarz
+  color: #fff; // Textfarbe: Weiß
+  font-family: 'Comic Sans MS', cursive;
 
   .kollege {
-    background-color: #2d2d2d;
+    border: 1px solid #666; // Rahmenfarbe: Dunkelgrau
+    background-color: #333; // Hintergrundfarbe: Dunkelgrau
+    color: #fff; // Textfarbe: Weiß
     padding: 20px;
+    margin-bottom: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
-    position: relative; // Hinzugefügt, um eine relative Positionierung zu ermöglichen
 
     &:hover {
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); // Schattenfarbe bei Hover
     }
 
-    .delete-button {
-      background-color: red;
-      border: none;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-  
-      .trash {
-        color: white;
-        
-        transition: color 0.3s ease;
-      }
-  
-      &:hover {
-        background-color: white;
-  
-        .trash {
-          color: white;
+    .kollege-actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 10px;
+      background-color: #333;
+
+      .delete-button,
+      .edit-button {
+        background-color: #f44336; // Button-Hintergrundfarbe: Rot
+        color: #fff; // Button-Textfarbe: Weiß
+        border: none;
+        border-radius: 5px;
+        padding: 5px 10px;
+        margin-left: 10px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #d32f2f; // Button-Hover-Hintergrundfarbe: Dunkelrot
         }
       }
+
+      .popup {
+        background-color: #333; // Popup-Hintergrundfarbe: Dunkelgrau
+        border: 1px solid #666; // Popup-Rahmenfarbe: Dunkelgrau
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1); // Popup-Schattenfarbe
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
     }
 
-    
-
     .kollege-details {
-      margin-top: 20px;
-      background-color: #2d2d2d;
-      font-family: 'Comic Sans', 'Comic Sans MS', cursive;
-
-      .kollege-name {
-        font-size: 20px;
+      background-color: #333;
+      h3 {
+        color: #fff; // Titel-Textfarbe: Weiß
         margin-bottom: 10px;
-        background-color: #2d2d2d;
-        color: white;
+        background-color: #333;
       }
 
       .kollege-description {
-        font-size: 14px;
-        background-color: #2d2d2d;
-        color: white;
+        background-color: #333;
+        color: #ccc; // Beschreibung-Textfarbe: Hellgrau
+      }
 
-        a {
-          background-color: #2d2d2d;
-          color: white;
-        }
+      a {
+        color: white;
+        background-color: #333;
       }
     }
   }
 
   .add-button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
+    background-color: #4caf50; // Button-Hintergrundfarbe: Grün
+    color: #fff; // Button-Textfarbe: Weiß
     border: none;
-    border-radius: 5px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
 
     &:hover {
-      background-color: #0056b3;
+      background-color: #388e3c; // Button-Hover-Hintergrundfarbe: Dunkelgrün
     }
   }
 }
