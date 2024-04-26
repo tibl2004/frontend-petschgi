@@ -1,0 +1,88 @@
+.kollege-form {
+    margin-top: 20px;
+  
+    h3 {
+      font-size: 24px; /* Größere Schrift für den Titel */
+      margin-bottom: 20px; /* Mehr Abstand unter dem Titel */
+    }
+  
+    .input-field {
+      width: 100%; /* Volle Breite für die Eingabefelder */
+      max-width: 400px;
+      margin-bottom: 20px; /* Mehr Abstand zwischen den Eingabefeldern */
+      padding: 15px; /* Größere Polsterung für die Eingabefelder */
+      background-color: #2d2d2d;
+      border: 1px solid #ccc;
+      border-radius: 8px; /* Runder Rand */
+      font-size: 18px; /* Größere Schrift für bessere Lesbarkeit */
+      color: #fff; /* Weißer Text */
+      outline: none; /* Entfernt den blauen Rahmen beim Fokussieren */
+      transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Flüssiger Übergang für den Rand */
+      
+      &:focus {
+        border-color: #007bff; /* Ändert die Rahmenfarbe beim Fokussieren */
+        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Fügt einen sanften Schatten hinzu, um den Fokus hervorzuheben */
+      }
+    }
+  
+    .textarea-field {
+      width: 100%;
+      max-width: 400px;
+      min-height: 150px; /* Mindesthöhe für das Textarea-Feld */
+      margin-bottom: 20px;
+      padding: 15px;
+      background-color: #2d2d2d;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 18px;
+      color: #fff;
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  
+      &:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+      }
+    }
+  
+    .link-insertion {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+  
+      .input-field {
+        flex: 1;
+        margin-right: 10px;
+      }
+  
+      .link-button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        transition: color 0.3s ease;
+  
+        &:hover {
+          color: #007bff;
+        }
+      }
+    }
+  
+    .add-button {
+      width: 100%; /* Volle Breite für den "Kollege hinzufügen"-Button */
+      max-width: 400px;
+      background-color: #007bff;
+      color: #fff;
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 20px; /* Größere Schrift für den Button */
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+  

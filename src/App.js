@@ -1,15 +1,14 @@
-// App.jsx
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate, useParams } from "react-router-dom";
 import Navbar from './Navbar/Navbar';
 import Home from './Home/Home';
 import SpielerMelden from './CommunityServer/Report/SpielerMelden';
 import CommunityServer from './CommunityServer/CommunityServer';
 import BugMelden from './CommunityServer/Bug/BugMelden';
-import YoutubeKollegen from './YoutubeKollegen/YouTubeKollegen';
-import SpielermeldungenAnzeigen from './Admin/SpielermeldungenAnzeigen'
-
-const isAdmin = localStorage.getItem('isAdmin');
+import SpielermeldungenAnzeigen from './Admin/SpielermeldungenAnzeigen';
+import YouTubeKollegen from './YoutubeKollegen/YouTubeKollegen';
+import YouTubeKollegenErstellen from './Admin/YouTubeKollegenErstellen';
+import EditYouTubeKollege from './Admin/EditYoutubeKollege';
 
 function App() {
   return (
@@ -44,6 +43,15 @@ function App() {
             }
           />
           <Route
+            path="/bearbeiten/:kollegeId"
+            element={
+              <>
+                <Navbar />
+                <EditYouTubeKollege />
+              </>
+            }
+          />
+          <Route
             path="/spielermeldungenanzeigen"
             element={
               <>
@@ -61,35 +69,24 @@ function App() {
               </>
             }
           />
-           <Route
+          <Route
             path="/youtubekollegen"
             element={
               <>
                 <Navbar />
-                <YoutubeKollegen />
+                <YouTubeKollegen />
               </>
             }
           />
-         
-         
-          {/*
-
-          
-          {isAdmin ? (
-           
-          ) : (
-            <Route
-              path="/login"
-              element={
-                <>
-                  <Navbar />
-                  <Login />
-                </>
-              }
-            />
-          )}
-            */}
-          
+          <Route
+            path="/youtubekollegen-erstellen"
+            element={
+              <>
+                <Navbar />
+                <YouTubeKollegenErstellen />
+              </>
+            }
+          />
         </Routes>
       </Router>
     </div>

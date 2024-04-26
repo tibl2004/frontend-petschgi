@@ -1,15 +1,13 @@
+// YouTubeKollegen.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLink, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
 import './YouTubeKollegen.scss'; // Importiere das SCSS-Stylesheet
 
 function YouTubeKollegen() {
   const [kollegen, setKollegen] = useState([]);
-  const [showForm, setShowForm] = useState(false);
-  const [newKollege, setNewKollege] = useState({ name: '', image: '', description: '', customLinkText: '', customLinkUrl: '' });
-  const [linkText, setLinkText] = useState('');
-  const [linkUrl, setLinkUrl] = useState('');
   const [showPopup, setShowPopup] = useState(false);
   const [selectedKollege, setSelectedKollege] = useState(null);
 
@@ -26,37 +24,6 @@ function YouTubeKollegen() {
     }
   };
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setNewKollege({ ...newKollege, [name]: value });
-  };
-
-  const handleAddKollege = async () => {
-    try {
-      const { description, ...rest } = newKollege;
-      const updatedDescription = description ? `${description} ${createLinkMarkup(linkText, linkUrl)}` : `${createLinkMarkup(linkText, linkUrl)}`;
-      await axios.post('https://backend-petschgi.onrender.com/api/v1/youtubekollegen', { ...rest, description: updatedDescription });
-      setNewKollege({ name: '', image: '', description: '', customLinkText: '', customLinkUrl: '' });
-      setLinkText('');
-      setLinkUrl('');
-      setShowForm(false);
-      fetchKollegen();
-    } catch (error) {
-      console.error('Error adding new Kollege:', error);
-    }
-  };
-
-  const insertLink = () => {
-    const updatedDescription = newKollege.description + ' ' + createLinkMarkup(linkText, linkUrl);
-    setNewKollege({ ...newKollege, description: updatedDescription });
-    setLinkText('');
-    setLinkUrl('');
-  };
-
-  const createLinkMarkup = (text, url) => {
-    return `<a href="${url}" target="_blank">${text}</a>`;
-  };
-
   const handleDelete = async (id) => {
     try {
       await axios.delete(`https://backend-petschgi.onrender.com/api/v1/youtubekollegen/${id}`);
@@ -68,26 +35,35 @@ function YouTubeKollegen() {
     }
   };
 
+  const handleEdit = (kollegeId) => {
+    // Weiterleitung zur Bearbeitungsseite mit der Kollegen-ID
+    window.location.href = `/bearbeiten/${kollegeId}`;
+  };
+
   return (
     <div className="youtube-kollegen">
       <h2>YouTube Kollegen</h2>
+      <Link to="/YouTubekollegen-erstellen">
+        <button className="add-button">+</button>
+      </Link>
       <div className="kollegen-liste">
         {kollegen.map((kollege, index) => (
           <div key={index} className="kollege" onMouseEnter={() => setSelectedKollege(kollege.id)} onMouseLeave={() => setSelectedKollege(null)}>
-            {selectedKollege === kollege.id && (
-              <div className="kollege-actions">
-                <button className="delete-button" onClick={() => setShowPopup(true)}>
-                  <FontAwesomeIcon icon={faTrash} />
-                </button>
-                {showPopup && selectedKollege === kollege.id && (
-                  <div className="popup">
-                    <p>Möchten Sie diesen Kollegen wirklich löschen?</p>
-                    <button onClick={() => handleDelete(kollege.id)}>Ja</button>
-                    <button onClick={() => setShowPopup(false)}>Abbrechen</button>
-                  </div>
-                )}
-              </div>
-            )}
+            <div className="kollege-actions">
+              <button className="delete-button" onClick={() => setShowPopup(true)}>
+                <FontAwesomeIcon icon={faTrash} className='trash'/>
+              </button>
+              <button className="edit-button" onClick={() => handleEdit(kollege.id)}>
+                <FontAwesomeIcon icon={faEdit} />
+              </button>
+              {showPopup && selectedKollege === kollege.id && (
+                <div className="popup">
+                  <p>Möchten Sie diesen Kollegen wirklich löschen?</p>
+                  <button onClick={() => handleDelete(kollege.id)}>Ja</button>
+                  <button onClick={() => setShowPopup(false)}>Abbrechen</button>
+                </div>
+              )}
+            </div>
             <img src={kollege.image} alt={kollege.name} className="kollege-image" />
             <div className="kollege-details">
               <h3 className="kollege-name">{kollege.name}</h3>
@@ -96,48 +72,6 @@ function YouTubeKollegen() {
           </div>
         ))}
       </div>
-      {showForm ? (
-        <div className="kollege-form">
-          <h3>Neuen Kollegen hinzufügen</h3>
-          <input type="text" name="name" placeholder="Name" value={newKollege.name} onChange={handleInputChange} className="input-field" />
-          <input type="text" name="image" placeholder="Bild URL" value={newKollege.image} onChange={handleInputChange} className="input-field" />
-          <textarea
-            name="description"
-            placeholder="Beschreibung"
-            value={newKollege.description}
-            onChange={handleInputChange}
-            cols="30"
-            rows="5"
-            className="textarea-field"
-          />
-          <div className="link-insertion">
-            <input
-              type="text"
-              placeholder="Link Text"
-              value={linkText}
-              onChange={(e) => setLinkText(e.target.value)}
-              className="input-field"
-            />
-            <input
-              type="text"
-              placeholder="Link URL"
-              value={linkUrl}
-              onChange={(e) => setLinkUrl(e.target.value)}
-              className="input-field"
-            />
-            <button className="link-button" onClick={insertLink}>
-              <FontAwesomeIcon icon={faLink} />
-            </button>
-          </div>
-          <button onClick={handleAddKollege} className="add-button">
-            Kollege hinzufügen
-          </button>
-        </div>
-      ) : (
-        <button onClick={() => setShowForm(true)} className="add-button">
-          + Kollege hinzufügen
-        </button>
-      )}
     </div>
   );
 }
