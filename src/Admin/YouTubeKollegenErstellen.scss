@@ -1,88 +1,92 @@
-.kollege-form {
-    margin-top: 20px;
-  
+.youtube-kollegen {
+  padding: 20px;
+  h2 {
+    text-align: center;
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 30px;
+  }
+
+  .kollege-form {
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
     h3 {
-      font-size: 24px; /* Größere Schrift für den Titel */
-      margin-bottom: 20px; /* Mehr Abstand unter dem Titel */
+      font-size: 24px;
+      color: #fff;
+      margin-bottom: 20px;
+      text-align: center;
     }
-  
-    .input-field {
-      width: 100%; /* Volle Breite für die Eingabefelder */
-      max-width: 400px;
-      margin-bottom: 20px; /* Mehr Abstand zwischen den Eingabefeldern */
-      padding: 15px; /* Größere Polsterung für die Eingabefelder */
-      background-color: #2d2d2d;
-      border: 1px solid #ccc;
-      border-radius: 8px; /* Runder Rand */
-      font-size: 18px; /* Größere Schrift für bessere Lesbarkeit */
-      color: #fff; /* Weißer Text */
-      outline: none; /* Entfernt den blauen Rahmen beim Fokussieren */
-      transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Flüssiger Übergang für den Rand */
-      
-      &:focus {
-        border-color: #007bff; /* Ändert die Rahmenfarbe beim Fokussieren */
-        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Fügt einen sanften Schatten hinzu, um den Fokus hervorzuheben */
-      }
-    }
-  
+
+    .input-field,
     .textarea-field {
       width: 100%;
-      max-width: 400px;
-      min-height: 150px; /* Mindesthöhe für das Textarea-Feld */
       margin-bottom: 20px;
+      
       padding: 15px;
       background-color: #2d2d2d;
-      border: 1px solid #ccc;
+      border: 1px solid #444;
       border-radius: 8px;
       font-size: 18px;
       color: #fff;
-      resize: vertical;
       outline: none;
       transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  
+
       &:focus {
         border-color: #007bff;
         box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
       }
     }
-  
+
+    .textarea-field {
+      min-height: 150px;
+      resize: vertical;
+    }
+
     .link-insertion {
       display: flex;
       align-items: center;
       margin-bottom: 20px;
-  
+
       .input-field {
         flex: 1;
         margin-right: 10px;
       }
-  
+
       .link-button {
-        background-color: transparent;
+        background-color: #007bff;
         border: none;
+        color: #fff;
+        padding: 10px 15px;
+        border-radius: 8px;
         cursor: pointer;
-        transition: color 0.3s ease;
-  
+        font-size: 18px;
+        transition: background-color 0.3s ease;
+
         &:hover {
-          color: #007bff;
+          background-color: #0056b3;
         }
       }
     }
-  
+
     .add-button {
-      width: 100%; /* Volle Breite für den "Kollege hinzufügen"-Button */
-      max-width: 400px;
+      width: 100%;
       background-color: #007bff;
       color: #fff;
       padding: 15px;
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      font-size: 20px; /* Größere Schrift für den Button */
+      font-size: 20px;
       transition: background-color 0.3s ease;
-  
+
       &:hover {
         background-color: #0056b3;
       }
     }
   }
-  
+}

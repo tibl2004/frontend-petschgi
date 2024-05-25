@@ -64,7 +64,7 @@ function Links() {
 
   return (
     <div className="links">
-      <h2>YouTube Kollegen</h2>
+      <h2>Links</h2>
       <div className="links-liste">
         {links.map((link, index) => (
           <div key={index} className="link" onMouseEnter={() => setSelectedLink(link.id)} onMouseLeave={() => setSelectedLink(null)}>

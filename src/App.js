@@ -9,6 +9,7 @@ import SpielermeldungenAnzeigen from './Admin/SpielermeldungenAnzeigen';
 import YouTubeKollegen from './YoutubeKollegen/YouTubeKollegen';
 import YouTubeKollegenErstellen from './Admin/YouTubeKollegenErstellen';
 import EditYouTubeKollege from './Admin/EditYoutubeKollege';
+import Links from './Links/Links';
 
 function App() {
   return (
@@ -33,6 +34,16 @@ function App() {
               </>
             }
           />
+
+          <Route
+            path="/links"
+            element={
+              <>
+                <Navbar />
+                <Links />
+              </>
+            }
+          />    
           <Route
             path="/bugmelden"
             element={

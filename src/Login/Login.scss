@@ -1,0 +1,53 @@
+// Login.scss
+
+$primary-color: #007bff;
+$secondary-color: #0056b3;
+$background-color: rgba(255, 255, 255, 0.8);
+$input-border-color: #ccc;
+$input-border-radius: 4px;
+$button-border-radius: 4px;
+
+.login-container {
+  background-image: url('./hintergrundbild.jpg'); /* Passe den Pfad zum Hintergrundbild an */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .login-form {
+    background-color: $background-color;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+
+      input {
+        width: 100%;
+        padding: 8px;
+        border-radius: $input-border-radius;
+        border: 1px solid $input-border-color;
+      }
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: $primary-color;
+      color: #ffffff;
+      border: none;
+      border-radius: $button-border-radius;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: $secondary-color;
+      }
+    }
+  }
+}
