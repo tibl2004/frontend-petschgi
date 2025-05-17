@@ -1,53 +1,138 @@
-// Login.scss
+/* Login.scss */
 
-$primary-color: #007bff;
-$secondary-color: #0056b3;
-$background-color: rgba(255, 255, 255, 0.8);
-$input-border-color: #ccc;
-$input-border-radius: 4px;
-$button-border-radius: 4px;
+$dark-bg-alt: #1E1E1E;
+$primary-color: #4A90E2;
+$primary-hover: #357ABD;
+$text-color: #E0E0E0;
+$text-muted: #A0A0A0;
+$error-color: #FF6B6B;
+$input-bg: #2A2A2A;
+$input-border: #444;
+$input-focus-border: $primary-color;
+$shadow-color: rgba(0, 0, 0, 0.7);
+$dark-overlay: rgba(18, 18, 18, 0.75);
 
 .login-container {
-  background-image: url('./hintergrundbild.jpg'); /* Passe den Pfad zum Hintergrundbild an */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 
+  /* Hintergrundbild mit dunklem Overlay */
+  background-image: 
+    linear-gradient($dark-overlay, $dark-overlay), 
+    url('./hintergrund.jpg');  /* Pfad zum Bild im public-Ordner */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  padding: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: $text-color;
+}
+
+.login-form {
+  background-color: $dark-bg-alt;
+  padding: 2.5rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px $shadow-color;
+  width: 100%;
+  max-width: 400px;
+  color: $text-color;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transition: background-color 0.3s ease;
+
+ 
+}
+
+.login-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  background-color: $dark-bg-alt;
+
+  text-align: center;
+  color: $primary-color;
+  letter-spacing: 1.2px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  background-color: $dark-bg-alt;
+
+}
+
+.form-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  background-color: $dark-bg-alt;
+
+  color: $text-muted;
+  user-select: none;
+}
+
+.form-input {
+  background-color: $input-bg;
+  border: 1.8px solid $input-border;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  color: $text-color;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  outline: none;
+
+  &:focus {
+    border-color: $input-focus-border;
+    box-shadow: 0 0 8px $primary-color;
+  }
+
+  &::placeholder {
+    color: $text-muted;
+    opacity: 0.8;
+  }
+}
+
+.error-message {
+  background-color: rgba(255, 107, 107, 0.15);
+  border: 1.5px solid $error-color;
+  color: $error-color;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  text-align: center;
+  user-select: none;
+}
+
+.submit-button {
+  background-color: $primary-color;
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 0.85rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba($primary-color, 0.6);
+
+  &:hover {
+    background-color: $primary-hover;
+    box-shadow: 0 6px 20px rgba($primary-hover, 0.7);
+  }
+
+  &:active {
+    background-color: darken($primary-hover, 10%);
+    box-shadow: none;
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
   .login-form {
-    background-color: $background-color;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-    label {
-      display: block;
-      margin-bottom: 10px;
-
-      input {
-        width: 100%;
-        padding: 8px;
-        border-radius: $input-border-radius;
-        border: 1px solid $input-border-color;
-      }
-    }
-
-    button {
-      width: 100%;
-      padding: 10px;
-      background-color: $primary-color;
-      color: #ffffff;
-      border: none;
-      border-radius: $button-border-radius;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-
-      &:hover {
-        background-color: $secondary-color;
-      }
-    }
+    padding: 2rem 2rem;
   }
 }

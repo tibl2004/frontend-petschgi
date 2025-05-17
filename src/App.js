@@ -10,6 +10,7 @@ import YouTubeKollegen from './YoutubeKollegen/YouTubeKollegen';
 import YouTubeKollegenErstellen from './Admin/YouTubeKollegenErstellen';
 import EditYouTubeKollege from './YoutubeKollegen/EditYoutubeKollege';
 import Links from './Links/Links';
+import Login from './Login/Login';
 
 function App() {
   return (
@@ -31,6 +32,16 @@ function App() {
               <>
                 <Navbar />
                 <SpielerMelden />
+              </>
+            }
+          />
+
+<Route
+            path="/login"
+            element={
+              <>
+                <Navbar />
+                <Login />
               </>
             }
           />
