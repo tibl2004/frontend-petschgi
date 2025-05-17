@@ -1,91 +1,152 @@
 .youtube-kollegen {
-  background-color: #000; // Hintergrundfarbe: Schwarz
-  color: #fff; // Textfarbe: Weiß
-  font-family: 'Comic Sans MS', cursive;
+  background: linear-gradient(to bottom, #2a2a2a, #1f1f1f);
+  color: #f5f5f5;
+  min-height: 100vh;
+  padding: 2rem;
 
-  .kollege {
-    border: 1px solid #666; // Rahmenfarbe: Dunkelgrau
-    background-color: #333; // Hintergrundfarbe: Dunkelgrau
-    color: #fff; // Textfarbe: Weiß
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-
-    &:hover {
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); // Schattenfarbe bei Hover
-    }
-
-    .kollege-actions {
-      display: flex;
-      justify-content: flex-end;
-      margin-bottom: 10px;
-      background-color: #333;
-
-      .delete-button,
-      .edit-button {
-        background-color: #f44336; // Button-Hintergrundfarbe: Rot
-        color: #fff; // Button-Textfarbe: Weiß
-        border: none;
-        border-radius: 5px;
-        padding: 5px 10px;
-        margin-left: 10px;
-        cursor: pointer;
-
-        &:hover {
-          background-color: #d32f2f; // Button-Hover-Hintergrundfarbe: Dunkelrot
-        }
-      }
-
-      .popup {
-        background-color: #333; // Popup-Hintergrundfarbe: Dunkelgrau
-        border: 1px solid #666; // Popup-Rahmenfarbe: Dunkelgrau
-        border-radius: 5px;
-        padding: 20px;
-        box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1); // Popup-Schattenfarbe
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-    }
-    .kollege-image {
-      height: 500px; 
-      width: 700px;
-      object-fit: cover;
-     }
-
-    .kollege-details {
-      background-color: #333;
-      h3 {
-        color: #fff; // Titel-Textfarbe: Weiß
-        margin-bottom: 10px;
-        background-color: #333;
-      }
-    
-      .kollege-description {
-        background-color: #333;
-        color: #ccc; // Beschreibung-Textfarbe: Hellgrau
-      }
-
-      a {
-        color: white;
-        background-color: #333;
-      }
-    }
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #ffffff;
   }
 
   .add-button {
-    background-color: #4caf50; // Button-Hintergrundfarbe: Grün
-    color: #fff; // Button-Textfarbe: Weiß
+    display: block;
+    margin: 0 auto 2rem auto;
+    padding: 0.6rem 1.2rem;
+    font-size: 1.5rem;
+    background: linear-gradient(to right, #444, #555);
+    color: #fff;
     border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 24px;
+    border-radius: 12px;
     cursor: pointer;
+    transition: all 0.3s ease;
 
     &:hover {
-      background-color: #388e3c; // Button-Hover-Hintergrundfarbe: Dunkelgrün
+      background: linear-gradient(to right, #666, #777);
+    }
+  }
+
+  .kollegen-liste {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .kollege {
+    background: linear-gradient(to bottom, #2e2e2e, #222);
+    border-radius: 16px;
+    padding: 1rem;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
+
+    .kollege-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      border: 2px solid #444;
+    }
+
+    .kollege-details {
+      .kollege-name {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: #ffffff;
+      }
+
+      .kollege-description {
+        font-size: 0.95rem;
+        color: #d0d0d0;
+
+        a {
+          color: #1da1f2;
+          text-decoration: underline;
+
+          &:hover {
+            color: #fff;
+          }
+        }
+      }
+    }
+
+    .kollege-actions {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      gap: 0.4rem;
+
+      .edit-button,
+      .delete-button {
+        background: #3a3a3a;
+        border: none;
+        color: #ccc;
+        padding: 6px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1.1rem;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background-color: #555;
+          color: #fff;
+        }
+
+        svg {
+          pointer-events: none;
+        }
+      }
+
+      .trash {
+        color: #ff4d4f;
+        transition: color 0.2s;
+
+        &:hover {
+          color: #ff777a;
+        }
+      }
+    }
+
+    .popup {
+      position: absolute;
+      top: 50px;
+      right: 10px;
+      background-color: #1f1f1f;
+      border: 1px solid #444;
+      padding: 0.8rem;
+      border-radius: 10px;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      color: #fff;
+      font-size: 0.9rem;
+
+      p {
+        margin-bottom: 0.7rem;
+      }
+
+      button {
+        background: #444;
+        color: #fff;
+        border: none;
+        padding: 0.4rem 0.8rem;
+        margin-right: 0.5rem;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background-color: #666;
+        }
+      }
     }
   }
 }

@@ -8,7 +8,7 @@ import BugMelden from './CommunityServer/Bug/BugMelden';
 import SpielermeldungenAnzeigen from './Admin/SpielermeldungenAnzeigen';
 import YouTubeKollegen from './YoutubeKollegen/YouTubeKollegen';
 import YouTubeKollegenErstellen from './Admin/YouTubeKollegenErstellen';
-import EditYouTubeKollege from './Admin/EditYoutubeKollege';
+import EditYouTubeKollege from './YoutubeKollegen/EditYoutubeKollege';
 import Links from './Links/Links';
 
 function App() {

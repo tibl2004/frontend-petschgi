@@ -8,10 +8,21 @@ function YouTubeKollegenErstellen() {
   const [newKollege, setNewKollege] = useState({ name: '', image: '', description: '', customLinkText: '', customLinkUrl: '' });
   const [linkText, setLinkText] = useState('');
   const [linkUrl, setLinkUrl] = useState('');
+  const [isUnderlined, setIsUnderlined] = useState(false);
+  const [isBold, setIsBold] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewKollege({ ...newKollege, [name]: value });
+  };
+
+  const handleCheckboxChange = (e) => {
+    const { name, checked } = e.target;
+    if (name === "isUnderlined") {
+      setIsUnderlined(checked);
+    } else if (name === "isBold") {
+      setIsBold(checked);
+    }
   };
 
   const handleAddKollege = async () => {
@@ -36,7 +47,16 @@ function YouTubeKollegenErstellen() {
   };
 
   const createLinkMarkup = (text, url) => {
-    return `<a href="${url}" target="_blank">${text}</a>`;
+    let styles = '';
+    if (isUnderlined) {
+      styles += 'text-decoration: underline;';
+    } else {
+      styles += 'text-decoration: none;';
+    }
+    if (isBold) {
+      styles += 'font-weight: bold;';
+    }
+    return `<a href="${url}" target="_blank" style="${styles}">${text}</a>`;
   };
 
   return (
@@ -70,6 +90,26 @@ function YouTubeKollegenErstellen() {
             onChange={(e) => setLinkUrl(e.target.value)}
             className="input-field"
           />
+          <div className="checkbox-group">
+            <label>
+              <input
+                type="checkbox"
+                name="isUnderlined"
+                checked={isUnderlined}
+                onChange={handleCheckboxChange}
+              />
+              Unterstrichen
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="isBold"
+                checked={isBold}
+                onChange={handleCheckboxChange}
+              />
+              Fett
+            </label>
+          </div>
           <button className="link-button" onClick={insertLink}>
             <FontAwesomeIcon icon={faLink} />
           </button>

@@ -1,99 +1,153 @@
-$primary-color: #007bff; // Primäre Farbe
-$secondary-color: #6c757d; // Sekundäre Farbe
-
 .community-server-container {
-  font-family: Arial, sans-serif;
-  padding: 20px;
-  border: 1px solid $secondary-color;
-  border-radius: 5px;
-  background-color: #2d2d2d; // Hintergrundfarbe anpassen
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  max-width: 500px;
-  margin: 0 auto;
-  
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 800px;
+  margin: 2rem auto;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
   h2 {
-    color: $primary-color;
-    margin-bottom: 20px;
-    background-color: #2d2d2d; // Hintergrundfarbe anpassen
-    padding: 10px; // Innenabstand hinzufügen
-    border-bottom: 1px solid $secondary-color; // Unterstrich hinzufügen
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    background-color: #1e1e1e;
+
+    color: #ffffff;
   }
-  
-  .minecraft-container {
-    margin-bottom: 20px;
-    background-color: #2d2d2d; // Hintergrundfarbe anpassen
-   
-    .copy-text {
-      padding: 10px 15px;
-      background-color: $primary-color; // Primärfarbe verwenden
-      color: #fff;
-      border-radius: 5px;
-      cursor: pointer;
-      
-      &:hover {
-        background-color: darken($primary-color, 10%); // Dunklere Farbe bei Hover
-      }
-    }
-  }
-  
-  .server-info {
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid $secondary-color;
-    background-color: #2d2d2d; // Hintergrundfarbe anpassen
-    border-radius: 5px;
-    color: white;
-    
-    p {
-      margin: 5px 0;
-      background-color: #2d2d2d;
-    }
-    .servername-button {
-      background-color: $primary-color;
-      border: none;
-      cursor: pointer;
-      color: #fff; // Sekundärfarbe verwenden
-      font-size: 18px;
-      
-      &:hover {
-        color: darken($secondary-color, 20%); // Dunklere Farbe bei Hover
-      }
-    }
-  }
-  
+
   .button-container {
     display: flex;
-    justify-content: space-between;
-    background-color: #2d2d2d;
-    
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+    background-color: #1e1e1e;
+
     .icon-button {
-      background-color: #2d2d2d;
+      color: #fff;
       border: none;
+      border-radius: 0.5rem;
+      padding: 0.6rem 0.9rem;
+      background-color: #1e1e1e;
+
       cursor: pointer;
-      color: $secondary-color; // Sekundärfarbe verwenden
-      font-size: 18px;
-      
+      transition: background-color 0.3s ease;
+
       &:hover {
-        color: darken($secondary-color, 20%); // Dunklere Farbe bei Hover
+        background-color: #5c5c5c;
+      }
+
+      svg {
+        font-size: 1.1rem;
       }
     }
   }
-  
-  .link-container {
+
+  .create-server {
     display: flex;
-    justify-content: space-between;
-    background-color: #fff; // Hintergrundfarbe anpassen
-    
-    .link {
-      padding: 10px 15px;
-      background-color: $primary-color; // Primärfarbe verwenden
-      color: #fff;
-      border-radius: 5px;
-      text-decoration: none;
-      
-      &:hover {
-        background-color: darken($primary-color, 10%); // Dunklere Farbe bei Hover
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    background-color: #1e1e1e;
+
+
+    input {
+      flex: 1;
+      padding: 0.6rem 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid #444;
+      background-color: #1e1e1e;
+
+      background-color: #2a2a2a;
+      color: #f5f5f5;
+
+      &::placeholder {
+        color: #aaa;
+      }
+
+      &:focus {
+        outline: none;
+        border-color: #777;
       }
     }
+
+    .icon-button {
+      background-color: #0077cc;
+
+      &:hover {
+        background-color: #3399ff;
+      }
+    }
+  }
+
+  .server-info {
+    background-color: #2e2e2e;
+    border: 1px solid #444;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .servername-button {
+      background-color: transparent;
+      color: #f5f5f5;
+      font-weight: bold;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: color 0.3s;
+
+      &:hover {
+        color: #00c3ff;
+      }
+    }
+
+    .button-container {
+      display: flex;
+      gap: 0.5rem;
+      background-color: #1e1e1e;
+
+
+      .icon-button {
+        background-color: #444;
+        color: #fff;
+
+        &:hover {
+          background-color: #666;
+        }
+      }
+    }
+  }
+
+  .link-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    background-color: #1e1e1e;
+
+
+    .link {
+      color: #00c3ff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+      background-color: #1e1e1e;
+
+
+      &:hover {
+        color: #66d9ff;
+      }
+    }
+  }
+
+  p {
+    text-align: center;
+    color: #ccc;
+    background-color: #1e1e1e;
+
+    margin-top: 2rem;
   }
 }

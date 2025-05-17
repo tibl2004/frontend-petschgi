@@ -1,68 +1,61 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './Login.scss';
 
+const Login = () => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
 
-const Login = ({ onLogin }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            const response = await axios.post('https://backend-petschgi.onrender.com/api/v1/youtubekollegen/login', {
+                benutzername: username,
+                passwort: password
+            });
+            const { token, userType } = response.data;
+            localStorage.setItem('token', token);
+            // Redirect or handle userType as needed
+            window.location.href = "/";
+            console.log('Login erfolgreich, User Type:', userType);
+        } catch (error) {
+            setError('Fehler beim Login. Bitte überprüfen Sie Benutzername und Passwort.');
+        }
+    };
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-
-    
-    if (users[username] && await compare(password, users[username])) { // Vergleiche die Passwörter
-      if (username === 'admin') {
-        localStorage.setItem('isAdmin', true);
-        window.location.href = '/users';
-      } else {
-        window.location.href = '/';
-      }
-    } else {
-      alert('Falscher Benutzername oder Passwort.');
-    }
-
-    // Setze das Passwort-Feld zurück
-    setPassword('');
-  };
-
-  // Überprüfe, ob der Benutzer ein Admin ist und rendere das Login-Formular entsprechend
-  const renderLoginForm = () => {
-    if (localStorage.getItem('isAdmin')) {
-      return (
+    return (
         <div className="login-container">
-          <form onSubmit={handleLogin} className="login-form">
-            <label>
-              Benutzername:
-              <input
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-              />
-            </label>
-            <br />
-            <label>
-              Passwort:
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </label>
-            <br />
-            <button type="submit">Einloggen</button>
-          </form>
+            
+            <form className="login-form" onSubmit={handleSubmit}>
+            <h2 className="login-title">Login</h2>
+                <div className="form-group">
+                    <label htmlFor="username" className="form-label">Benutzername</label>
+                    <input
+                        type="text"
+                        id="username"
+                        className="form-input"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        required
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="password" className="form-label">Passwort</label>
+                    <input
+                        type="password"
+                        id="password"
+                        className="form-input"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </div>
+                {error && <div className="error-message">{error}</div>}
+                <button type="submit" className="submit-button">Login</button>
+            </form>
         </div>
-      );
-    } else {
-      return null; // Zeige kein Login-Formular an, wenn der Benutzer kein Admin ist
-    }
-  };
-
-  return (
-    <div>
-      {renderLoginForm()}
-    </div>
-  );
+    );
 };
 
 export default Login;
